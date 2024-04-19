@@ -11,7 +11,7 @@ GREYS = 175, 175, 175
 BLACK = 0, 0, 0
 FPS = 60
 clock = pygame.time.Clock()
-
+folder = "1"
 # f1 = pygame.font.Font(None, 36)
 
 class Button:
@@ -21,8 +21,8 @@ class Button:
         self.key = key
         self.color2 = color2
         self.color1 = color
-        self.count = 14
         self.sound = pygame.mixer.Sound(sound)
+        self.count = 14
     def update(self):
         pygame.draw.rect(window, self.color, self.rect)
         self.animited()
@@ -36,60 +36,63 @@ class Button:
             self.count -= 1
             if self.count == 0:
                 self.color = self.color1
-
-                
+    def change(self, new_snd):
+        filepath = os.path.join(folder, new_snd)
+        self.sound = pygame.mixer.Sound(filepath)
 
 # 1 октава
-btn = Button(50, 350, 50, 200, WHITE, GREY,"snd/1.mp3", pygame.K_q)
-btn1 = Button(105, 350, 50, 200, WHITE, GREY, "snd/2.mp3",pygame.K_w)
-btn2 = Button(160, 350, 50, 200, WHITE, GREY, "snd/3.mp3", pygame.K_e)
-btn3 = Button(215, 350, 50, 200, WHITE, GREY, "snd/4.mp3", pygame.K_r)
-btn4 = Button(270, 350, 50, 200, WHITE, GREY, "snd/5.mp3", pygame.K_t)
-btn5 = Button(325, 350, 50, 200, WHITE, GREY, "snd/6.mp3", pygame.K_y)
-btn6 = Button(380, 350, 50, 200, WHITE, GREY, "snd/7.mp3", pygame.K_u)
+btn = Button(50, 350, 50, 200, WHITE, GREY,"1/1.ogg", pygame.K_q)
+btn1 = Button(105, 350, 50, 200, WHITE, GREY, "1/2.ogg",pygame.K_w)
+btn2 = Button(160, 350, 50, 200, WHITE, GREY, "1/3.ogg", pygame.K_e)
+btn3 = Button(215, 350, 50, 200, WHITE, GREY, "1/4.ogg", pygame.K_r)
+btn4 = Button(270, 350, 50, 200, WHITE, GREY, "1/5.ogg", pygame.K_t)
+btn5 = Button(325, 350, 50, 200, WHITE, GREY, "1/6.ogg", pygame.K_y)
+btn6 = Button(380, 350, 50, 200, WHITE, GREY, "1/7.ogg", pygame.K_u)
 
 # 2 октава
-btn12 = Button(435, 350, 50, 200, WHITE, GREY, "snd/8.ogg", pygame.K_a)
-btn13 = Button(490, 350, 50, 200, WHITE, GREY, "snd/9.ogg", pygame.K_s)
-btn14 = Button(545, 350, 50, 200, WHITE, GREY, "snd/10.ogg", pygame.K_d)
-btn15 = Button(600, 350, 50, 200, WHITE, GREY, "snd/11.ogg", pygame.K_f)
-btn16 = Button(655, 350, 50, 200, WHITE, GREY, "snd/12.ogg", pygame.K_g)
-btn17 = Button(710, 350, 50, 200, WHITE, GREY, "snd/13.ogg", pygame.K_h)
-btn18 = Button(765, 350, 50, 200, WHITE, GREY, "snd/14.ogg", pygame.K_j)
+btn12 = Button(435, 350, 50, 200, WHITE, GREY, "1/8.ogg", pygame.K_a)
+btn13 = Button(490, 350, 50, 200, WHITE, GREY, "1/9.ogg", pygame.K_s)
+btn14 = Button(545, 350, 50, 200, WHITE, GREY, "1/10.ogg", pygame.K_d)
+btn15 = Button(600, 350, 50, 200, WHITE, GREY, "1/11.ogg", pygame.K_f)
+btn16 = Button(655, 350, 50, 200, WHITE, GREY, "1/12.ogg", pygame.K_g)
+btn17 = Button(710, 350, 50, 200, WHITE, GREY, "1/13.ogg", pygame.K_h)
+btn18 = Button(765, 350, 50, 200, WHITE, GREY, "1/14.ogg", pygame.K_j)
 
 # 3 октава
-btn24 = Button(820, 350, 50, 200, WHITE, GREY, "snd/15.mp3", pygame.K_z)
-btn25 = Button(875, 350, 50, 200, WHITE, GREY, "snd/16.mp3", pygame.K_x)
-btn26 = Button(930, 350, 50, 200, WHITE, GREY, "snd/17.mp3", pygame.K_c)
-btn27 = Button(985, 350, 50, 200, WHITE, GREY, "snd/18.mp3", pygame.K_v)
-btn28 = Button(1040, 350, 50, 200, WHITE, GREY, "snd/19.mp3", pygame.K_b)
-btn29 = Button(1095, 350, 50, 200, WHITE, GREY, "snd/20.mp3", pygame.K_n)
-btn30 = Button(1150, 350, 50, 200, WHITE, GREY, "snd/21.mp3", pygame.K_m)
+btn24 = Button(820, 350, 50, 200, WHITE, GREY, "1/15.mp3", pygame.K_z)
+btn25 = Button(875, 350, 50, 200, WHITE, GREY, "1/16.mp3", pygame.K_x)
+btn26 = Button(930, 350, 50, 200, WHITE, GREY, "1/17.mp3", pygame.K_c)
+btn27 = Button(985, 350, 50, 200, WHITE, GREY, "1/18.mp3", pygame.K_v)
+btn28 = Button(1040, 350, 50, 200, WHITE, GREY, "1/19.mp3", pygame.K_b)
+btn29 = Button(1095, 350, 50, 200, WHITE, GREY, "1/20.mp3", pygame.K_n)
+btn30 = Button(1150, 350, 50, 200, WHITE, GREY, "1/21.mp3", pygame.K_m)
 
 #диезы     1 октава
-btn7 = Button(85, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_1)
-btn8 = Button(140, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_2)
-btn9 = Button(250, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_3)
-btn10 = Button(305, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_4)
-btn11 = Button(360, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_5)
+btn7 = Button(85, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_1)
+btn8 = Button(140, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_2)
+btn9 = Button(250, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_3)
+btn10 = Button(305, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_4)
+btn11 = Button(360, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_5)
 
 #          2 октавва
-btn19 = Button(470, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_6)
-btn20 = Button(525, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_7)
-btn21 = Button(635, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_8)
-btn22 = Button(690, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_9)
-btn23 = Button(745, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_0)
+btn19 = Button(470, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_6)
+btn20 = Button(525, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_7)
+btn21 = Button(635, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_8)
+btn22 = Button(690, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_9)
+btn23 = Button(745, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_0)
 
 #          3 октава
-btn31 = Button(855, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_i)
-btn32 = Button(910, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_o)
-btn33 = Button(1020, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_p)
-btn34 = Button(1075, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_k)
-btn35 = Button(1130, 350, 35, 150, BLACK, GREYB, "snd/8.ogg", pygame.K_l)
+btn31 = Button(855, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_i)
+btn32 = Button(910, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_o)
+btn33 = Button(1020, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_p)
+btn34 = Button(1075, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_k)
+btn35 = Button(1130, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_l)
 
+buttons = [btn, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13]
+
+# buttonbaraban = Button(1075, 100, 50, 50, BLACK, GREYB, "2/1.ogg", pygame.MOUSEBUTTONDOWN)
 
 window = pygame.display.set_mode((win_w, win_h))
-
 
 
 # text1 = f1.render('Клавиши расположены в таком порядке: Q W E R T Y U A S D F G H J Z X C V B N M', 1, (180, 0, 0))
@@ -103,6 +106,21 @@ while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            folder = "2"
+            print (folder)
+            
+            for i in range(13):
+                buttons[i].change( str(i+1) +".ogg")
+
+        # if folder == "2":
+        #     if event.type == pygame.MOUSEBUTTONDOWN:
+        #         print(folder)
+        #         folder = "1"
+        #         for i in range(8):
+        #             buttons[i].change( str(i+1) + ".mp3")
+
         if event.type == pygame.KEYDOWN:
             btn.click(event)
             btn1.click(event)
@@ -140,6 +158,8 @@ while game:
             btn33.click(event)
             btn34.click(event)
             btn35.click(event)
+            
+
     btn.update()
     btn1.update()
     btn2.update()
@@ -176,6 +196,7 @@ while game:
     btn33.update()
     btn34.update()
     btn35.update()
+    # buttonbaraban.update()
     pygame.display.update()
     clock.tick(FPS)
  
