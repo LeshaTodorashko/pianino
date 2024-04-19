@@ -12,6 +12,8 @@ BLACK = 0, 0, 0
 FPS = 60
 clock = pygame.time.Clock()
 folder = "1"
+pygame.mixer_music.load("Welcome.mp3")
+pygame.mixer_music.play()
 # f1 = pygame.font.Font(None, 36)
 
 class Button:
@@ -88,7 +90,7 @@ btn33 = Button(1020, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_p)
 btn34 = Button(1075, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_k)
 btn35 = Button(1130, 350, 35, 150, BLACK, GREYB, "1/21.mp3", pygame.K_l)
 
-buttons = [btn, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13]
+buttons = [btn, btn1, btn2, btn3, btn4, btn5, btn6, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn24, btn25, btn26, btn27, btn28, btn29, btn30]
 
 # buttonbaraban = Button(1075, 100, 50, 50, BLACK, GREYB, "2/1.ogg", pygame.MOUSEBUTTONDOWN)
 
@@ -110,16 +112,16 @@ while game:
         if event.type == pygame.MOUSEBUTTONDOWN:
             folder = "2"
             print (folder)
-            
-            for i in range(13):
+            for i in range(21):
                 buttons[i].change( str(i+1) +".ogg")
 
-        # if folder == "2":
-        #     if event.type == pygame.MOUSEBUTTONDOWN:
-        #         print(folder)
-        #         folder = "1"
-        #         for i in range(8):
-        #             buttons[i].change( str(i+1) + ".mp3")
+        
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if folder == "2":
+                    folder = "3"
+                    print(folder)
+                    for i in range(21):
+                        buttons[i].change( str(i+1) + ".ogg")
 
         if event.type == pygame.KEYDOWN:
             btn.click(event)
